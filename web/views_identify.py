@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import logout
 from django_request_mapping import request_mapping
+
 from web.models import Cust
 
 
@@ -46,19 +47,18 @@ class IdentifyView(View):
     def loginimpl(self, request):
         id = request.POST['id']
         password = request.POST['password']
-        context = {}
+        context = dict()
         try:
             cust = Cust.objects.get(id=id)
             if cust.password == password:
-                data = Cust.objects.get(id=id)
                 request.session['sessionid'] = id
-                html = 'common/home.html'
+                return redirect('/')
             else:
                 raise Exception
         except:
-            html = 'common/main.html'
             context['center'] = 'identify/logins.html'
-        return render(request, html, context)
+            context['error'] = 'error'
+            return render(request, 'common/main.html', context)
 
     @request_mapping("/idfindimpl", method="post")
     def idfindimpl(self, request):

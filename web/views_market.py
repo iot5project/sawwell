@@ -127,7 +127,7 @@ class MarketView(View):
     def menu(self, request, pk):
         menu_list = Seochofood.objects.filter(seochono=pk)
         market_img = Seocho.objects.get(seochono=pk)
-        market_name = Categori.objects.get(categoriname='분식')
+        market_name = Seocho.objects.get(seochono=pk)
         context = {
             'center': 'market/menu.html',
             'name': market_name,
