@@ -1,0 +1,47 @@
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="/">Saw Well</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="/">Home</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-8 entries">
+        <article class="entry">
+          <h2 class="entry-title">
+            <span>MY PAGE</span><br><br>
+            <span>ID : {{obj.id}}</span>
+          </h2>
+          <h2 class="entry-title">
+            <span>PASSWORD : {{obj.password}}</span>
+          </h2>
+          <h2 class="entry-title">
+            <span>NAME : {{obj.name}}</span>
+          </h2>
+          <h2 class="entry-title">
+            <span>E-MAIL : {{obj.email}}</span>
+          </h2>
+          <h2 class="entry-title">
+            <span>REGDATE : {{obj.regdate}}</span>
+          </h2>
+        </article>
+        <div style="display: inline-block" class="text-center"><button><a href="/identify/updateview">UPDATE</a></button></div>
+      </div>
+      <form action="/identify/delete" method="get">
+        <div style="display: inline-block" class="text-center"><button>DELETE</button></div>
+      </form>
+    </div>
+  </div>
+</section>

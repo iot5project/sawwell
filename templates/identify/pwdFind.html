@@ -1,0 +1,47 @@
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="/">Saw Well</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/identify/idFind">idFind</a> </li>
+          <li><a class="nav-link scrollto" href="/market/pwdFind">pwdFind</a> </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+<script>
+  if('{{error}}' == 'error') {
+    alert('email 또는 id가 틀립니다.')
+  }
+</script>
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-8 entries">
+        <article class="entry">
+          <div class="entry-content">
+            <form action="/identify/pwdfindimpl" method="post" role="form" class="php-email-form">
+              <h3>PASSWORD 찾기</h3><br>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력하세요." required>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="email" id="email" placeholder="이메일을 입력하세요." required>
+                </div>
+              <br>
+              <div class="text-center"><button>Password 찾기</button></div><br>
+            </form>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
