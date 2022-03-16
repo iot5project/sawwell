@@ -8,13 +8,14 @@ from web.models import Cust, Market, Review, Reply, Ceo
 @request_mapping('/review')
 class ReviewView(View):
 
-    @request_mapping('/reviewlist')
-    def reviewlist(self, request):
+    @request_mapping('/reviewlist/<int:pk>/')
+    def reviewlist(self, request, pk):
         obj = Cust.objects.all()
         objects = Market.objects.all()
         robjs = Review.objects.all()
         rpobjs = Review.objects.all()
-        realtion = Review.objects.select_related('custno').all()
+        realtion = Review.objects.filter(seochono=pk)
+        # reply = Reply.objects.filter(seochono=pk)
         print(realtion)
         context = {
             'objs': obj,
@@ -22,7 +23,8 @@ class ReviewView(View):
             'robjs': robjs,
             'rpobjs': rpobjs,
             'real_obj': realtion,
-            'center': 'review/list.html'
+            'center': 'review/list.html',
+            # 'reply': reply
         }
         return render(request, 'common/main.html', context)
 
