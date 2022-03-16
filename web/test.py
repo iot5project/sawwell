@@ -1,8 +1,9 @@
 import random
 
+
 def cust():
-    print('INSERT INTO `cust` (`ids`, `password`, `name`, `address`, `email`) VALUES')
-    for i in range(1, 101):
+    print('INSERT INTO `cust` (`id`, `password`, `name`, `address`, `email`) VALUES')
+    for i in range(1, 316):
         ids = 'id' + str(i)
         password = 'id' + str(i)
         name = 'name' + str(i)
@@ -10,8 +11,11 @@ def cust():
         email = 'email' + str(i)
         split = "'" + ',' + "'"
         print("('" + ids + split + password + split + name + split + address + split + email + "'),")
-        if i == 100:
+        if i == 315:
             print("('" + ids + split + password + split + name + split + address + split + email + "');")
+
+
+cust()
 
 
 def food():
@@ -25,9 +29,6 @@ def food():
             print("('" + names + split + str(price) + "');")
 
 
-food()
-
-
 def marketno():
     print('INSERT INTO `food` (`marketname`, `marketaddress`, `open`, `close`,`holiday`,`hit`, `cid`, `foodid` ) VALUES')
     for i in range(1, 101):
@@ -39,20 +40,50 @@ def marketno():
             print("('" + names + split + str(price) + "');")
 
 
-food()
+# food()
+
+def review():
+    print('INSERT INTO `review` ( `content`, `star`, `custno`, `seochono`) VALUES')
+    for i in range(1, 316):
+        content = 'markettest' + str(i) + 'user' + str(i)
+        star = random.choice(range(1, 5))
+        custno = i
+        seochono = i
+        split = "'" + ',' + "'"
+        print("('" + content + split + str(star) + split + str(custno) + split + str(seochono) + "'),")
+        if i == 315:
+            print("('" + content + split + str(star) + split + str(custno) + split + str(seochono) + "');")
 
 
-# print('INSERT INTO `review` (`reviewno`, `content`, `star`, `custno`, `marketno`) VALUES')
-# for i in range(1, 101):
-#     content = 'test' + str(i)
-#     star = random.choice(range(1, 5))
-#     name = 'name' + str(i)
-#     custno = i
-#     marketno = i
-#     split = "'" + ',' + "'"
-#     print("('" + ids + split + password + split + name + split + address + split + email + "'),")
-#     if i == 100:
-#         print("('" + ids + split + password + split + name + split + address + split + email + "');")
-#
-# for i in range()
+# review()
 
+
+def ceo():
+    print('INSERT INTO `ceo` ( `id`, `password`, `name`, `seochono`) VALUES')
+    for i in range(1, 316):
+        id = 'ceo' + str(i) + 'id' + str(i)
+        password = 'password' + str(i)
+        name = 'ceo' + str(i)
+        seochono = i
+        split = "'" + ',' + "'"
+        print("('" + id + split + password + split + name + split + str(seochono) + "'),")
+        if i == 315:
+            print("('" + id + split + password + split + name + split + str(seochono) + "');")
+
+
+# ceo()
+
+
+def reply():
+    print('INSERT INTO `reply` ( `content`, `ceoid`, `reviewno`) VALUES')
+    for i in range(1, 316):
+        content = 'market' + str(i) + 'ceo' + str(i) + 'id' + str(i)
+        ceoid = i
+        seochono = i
+        split = "'" + ',' + "'"
+        print("('" + content + split + str(ceoid) + split + str(seochono) + "'),")
+        if i == 315:
+            print("('" + content + split + str(ceoid) + split + str(seochono) + "');")
+
+
+# reply()
