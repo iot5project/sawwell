@@ -13,7 +13,7 @@ class ReviewView(View):
         obj = Cust.objects.all()
         objects = Market.objects.all()
         robjs = Review.objects.all()
-        rpobjs = Review.objects.all()
+        rpobjs = Review.objects.filter(seochono=pk)
         realtion = Review.objects.filter(seochono=pk)
         # reply = Reply.objects.filter(seochono=pk)
         print(realtion)
@@ -28,11 +28,11 @@ class ReviewView(View):
         }
         return render(request, 'common/main.html', context)
 
-    @request_mapping("/reviewimpl", method="post")
-    def reviewimpl(self, request):
+    @request_mapping("/reviewimpl/<int:pk>/", method="post")
+    def reviewimpl(self, request, pk):
         star = request.POST['star']
         content = request.POST['content']
-        market_list = Market.objects.get(marketno='1')
+        market_list = Market.objects.get(marketno=pk)
         id = request.session['sessionid']
         custno = Cust.objects.get(id=id)
         print(star, content)
