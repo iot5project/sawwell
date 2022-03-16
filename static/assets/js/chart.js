@@ -7,7 +7,7 @@ function display(data){
                 type: 'pie'
             },
             title: {
-                text: 'Browser market shares in January, 2018'
+                text: 'Category market shares'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -27,43 +27,36 @@ function display(data){
                     }
                 }
             },
-        }]
-    }]
-});
+            series: data
+        });
+    };
+
 
 function getdata(){
        var data= [{
-        name: 'Brands',
+        name: 'Food category',
         colorByPoint: true,
         data: [{
-            name: 'Chrome',
-            y: 61.41,
-            sliced: true,
-            selected: true
+            name: '한식',
+            y: 70.47
         }, {
-            name: 'Internet Explorer',
-            y: 11.84
+            name: '일식',
+            y: 10.79
         }, {
-            name: 'Firefox',
-            y: 10.85
+            name: '중식',
+            y: 7.93
         }, {
-            name: 'Edge',
-            y: 4.67
+            name: '양식',
+            y: 5.07
         }, {
-            name: 'Safari',
-            y: 4.18
+            name: '기타',
+            y: 2.85
         }, {
-            name: 'Sogou Explorer',
-            y: 1.64
+            name: '뷔페',
+            y: 1.58
         }, {
-            name: 'Opera',
-            y: 1.6
-        }, {
-            name: 'QQ',
-            y: 1.2
-        }, {
-            name: 'Other',
-            y: 2.61
+            name: '분식',
+            y: 1.26
         }]
     }]
     display(data);
