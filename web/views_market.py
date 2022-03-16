@@ -21,7 +21,6 @@ class MarketView(View):
             'objs': page_obj,
             'name': market_name,
             'center': 'market/list.html'
-
         }
         return render(request, 'common/main.html', context)
 
