@@ -19,7 +19,7 @@ class MarketAdmin(admin.ModelAdmin):
 
 
 class CeoAdmin(admin.ModelAdmin):
-    list_display = ('ceoid', 'marketno', 'id', 'password', 'name')
+    list_display = ('ceoid', 'seochono', 'id', 'password', 'name')
 
 
 class ReplyAdmin(admin.ModelAdmin):
@@ -27,7 +27,7 @@ class ReplyAdmin(admin.ModelAdmin):
 
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('reviewno', 'marketno', 'custno', 'content', 'star', 'regdate')
+    list_display = ('reviewno', 'seochono', 'custno', 'content', 'star', 'regdate')
 
 
 class SeochoAdmin(admin.ModelAdmin):
@@ -35,4 +35,4 @@ class SeochoAdmin(admin.ModelAdmin):
 
 
 class SeochofoodAdmin(admin.ModelAdmin):
-    list_display = ('foodid', 'marketno', 'name', 'price', 'regdate')
+    list_display = ('foodid', 'marketno', 'name', 'price')
