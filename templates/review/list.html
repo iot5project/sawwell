@@ -81,9 +81,9 @@ a{
             <article class="entry">
 
               <h2 class="entry-title">
-                <a href="blog-single.html">Market_name</a>
+                <a href="blog-single.html">market_name</a>
               </h2>
-              <h4>user_id</h4>
+              <h4>{{request.session.sessionid}}</h4>
                   <form action="reviewimpl" method="post">
                       {% csrf_token %}
                       별점<input type="number" name="star" min="1" max="5"><br>
