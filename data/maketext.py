@@ -32,6 +32,15 @@ for line in rdr:
 
 f.close()
 
+print('한식 갯수: {}'.format(len(korean_dir)))
+print('일식 갯수: {}'.format(len(japan_dir)))
+print('양식 갯수: {}'.format(len(america_dir)))
+print('기타 갯수: {}'.format(len(etc_dir)))
+print('중식 갯수: {}'.format(len(china_dir)))
+print('분식 갯수: {}'.format(len(snack_dir)))
+print('뷔페 갯수: {}'.format(len(buffet_dir)))
+
+
 f = open('seocho.csv', 'r', encoding='cp949')
 rdr = csv.reader(f)
 for line in rdr:
