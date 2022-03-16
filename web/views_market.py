@@ -13,7 +13,6 @@ class MarketView(View):
     def chicken(self, request):
         page = request.GET.get('page', '1')
         market_name = Categori.objects.get(categoriname='한식')
-        print(market_name)
         market_list = Seocho.objects.filter(categori='한식').order_by('seochono')
         paginator = Paginator(market_list, 9)
         page_obj = paginator.get_page(page)

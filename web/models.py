@@ -87,6 +87,7 @@ class Seochofood(models.Model):
 class Reply(models.Model):
     replyid = models.AutoField(primary_key=True)
     reviewno = models.ForeignKey('Review', models.DO_NOTHING, db_column='reviewno')
+    seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
     ceoid = models.ForeignKey(Ceo, models.DO_NOTHING, db_column='ceoid')
     content = models.CharField(max_length=100, blank=True, null=True)
     regdate = models.DateField(auto_now=True)

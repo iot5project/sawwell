@@ -1,4 +1,11 @@
-  <!-- ======= Header ======= -->
+<script>
+var error = ['{{error}}']
+
+if(error[0] == {{error}}){
+  alert('emil 주소가 잘못 되었습니다.');
+}
+</script>
+<!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -17,6 +24,19 @@
 
     </div>
   </header><!-- End Header -->
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/identify/login">Login</a></li>
+      <li><a href="/identify/register">register</a></li>
+    </ol>
+    <h2>login</h2>
+
+  </div>
+</section><!-- End Breadcrumbs -->
 <section id="blog" class="blog">
   <div class="container" data-aos="fade-up">
     <div class="row">

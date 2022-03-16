@@ -104,13 +104,11 @@ class IdentifyView(View):
         context = {}
         try:
             Cust.objects.get(id=id)
-            print("register fail")
             context['center'] = 'identify/register.html'
             context['error'] = 'error'
             return render(request, 'common/main.html', context)
         except:
             Cust(id=id, password=password, name=name, address=address, email=email).save()
-            print("register ok")
             return redirect('/')
 
     @request_mapping("/mypage", method="get")
