@@ -50,36 +50,13 @@ class Market(models.Model):
 
 class Ceo(models.Model):
     ceoid = models.AutoField(primary_key=True)
-    marketno = models.ForeignKey('Market', models.DO_NOTHING, db_column='marketno')
+    seochono = models.ForeignKey('Seocho', models.DO_NOTHING, db_column='seochono')
     id = models.CharField(max_length=100, blank=True, null=True)
     password = models.CharField(max_length=100, blank=True, null=True)
     name = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         db_table = 'ceo'
-
-
-class Reply(models.Model):
-    replyid = models.AutoField(primary_key=True)
-    reviewno = models.ForeignKey('Review', models.DO_NOTHING, db_column='reviewno')
-    ceoid = models.ForeignKey(Ceo, models.DO_NOTHING, db_column='ceoid')
-    content = models.CharField(max_length=100, blank=True, null=True)
-    regdate = models.DateField(auto_now=True)
-
-    class Meta:
-        db_table = 'reply'
-
-
-class Review(models.Model):
-    reviewno = models.AutoField(primary_key=True)
-    marketno = models.ForeignKey(Market, models.DO_NOTHING, db_column='marketno')
-    custno = models.ForeignKey(Cust, models.DO_NOTHING, db_column='custno')
-    content = models.CharField(max_length=100, blank=True, null=True)
-    star = models.FloatField(blank=True, null=True)
-    regdate = models.DateField(auto_now=True)
-
-    class Meta:
-        db_table = 'review'
 
 
 class Seocho(models.Model):
@@ -102,7 +79,29 @@ class Seochofood(models.Model):
     seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
     name = models.CharField(max_length=30, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
-    regdate = models.DateField(auto_now=True)
 
     class Meta:
         db_table = 'seochofood'
+
+
+class Reply(models.Model):
+    replyid = models.AutoField(primary_key=True)
+    reviewno = models.ForeignKey('Review', models.DO_NOTHING, db_column='reviewno')
+    ceoid = models.ForeignKey(Ceo, models.DO_NOTHING, db_column='ceoid')
+    content = models.CharField(max_length=100, blank=True, null=True)
+    regdate = models.DateField(auto_now=True)
+
+    class Meta:
+        db_table = 'reply'
+
+
+class Review(models.Model):
+    reviewno = models.AutoField(primary_key=True)
+    seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
+    custno = models.ForeignKey(Cust, models.DO_NOTHING, db_column='custno')
+    content = models.CharField(max_length=100, blank=True, null=True)
+    star = models.FloatField(blank=True, null=True)
+    regdate = models.DateField(auto_now=True)
+
+    class Meta:
+        db_table = 'review'
