@@ -134,7 +134,7 @@ class IdentifyView(View):
         id = request.session['sessionid']
         obj = Cust.objects.get(id=id)
         context = {
-            'center': 'identify/update.html',
+            'center': 'identify/ceoupdate.html',
             'obj': obj
         }
         return render(request, 'common/main.html', context)
