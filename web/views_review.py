@@ -37,10 +37,8 @@ class ReviewView(View):
         print("write ok")
         return render(request, 'common/main.html', context)
 
-
-
     @request_mapping("/reviewwriteimpl/<int:pk>", method="get")
-    def reviewwriteimpl(self, request,pk):
+    def reviewwriteimpl(self, request, pk):
         reviewno = request.get['write']
         reply_list = Reply.objects.filter(seochono=pk, reviewno=reviewno)
         context = {

@@ -1,0 +1,74 @@
+<link rel="/static/assets/stylesheet/less" type="text/css" href="menu.less"/>
+<script src="/static/assets/menu.css" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.6.2/less.min.js"></script>
+{% load static %}
+ <style>
+    .card-columns {
+    column-count: 3;
+    }
+</style>
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="/">Saw Well</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="/">Home</a></li>
+          <li><a class="active" href="/market/{{name.categori}}">{{name.categori}}</a></li>
+          <li><a class="nav-link scrollto" href="/review/reviewlist">review</a> </li>
+          <li><a class="active" href="/market/menu">menu</a> </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">g
+        <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto col-12 text-center mb-3">
+                        <center>
+                            <img src = "/static/assets/img/market/{{market_img.seochono}}.jpg"><br><br>
+                            <h1 class="mt-0 text-primary">{{market_img.marketname}} Menu</h1>
+                        </center>
+                    </div>
+            </div>
+        </div>
+    </section>
+      <section id="price">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <div class="pricing-list">
+                            <div class="title">
+                                <h3>Menu</h3>
+                            </div>
+                            <ul>
+                                {% for obj in menu_list %}
+                                <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                                    <div class="item">
+                                        <div class="item-title">
+                                            <h2>{{obj.name}}</h2>
+                                            <div class="border-bottom"></div>
+                                            <h4>₩ {{obj.price}}</h4>
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- .col-md-12 close -->
+            </div><!-- .row close -->
+        </div><!-- .containe close -->
+    </section><!-- #price close -->
+  </main><!-- End #main -->

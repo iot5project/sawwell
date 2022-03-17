@@ -1,12 +1,13 @@
 import json
 
 from django.core.paginator import Paginator
+from django.db.models import Avg, Count
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from django_request_mapping import request_mapping
 
-from web.models import Seocho
+from web.models import Seocho, Review
 
 
 @request_mapping('')
@@ -14,11 +15,12 @@ class MyView(View):
 
     @request_mapping('/')
     def home(self, request):
+        rank_list = Review.objects.select_related('seochono').annotate(avg_star=Avg('star')).order_by('-avg_star')[:9]
         context = {
-            'recommend': 'home/recommend.html',
             'popular': 'home/popular.html',
             'categori': 'home/categori.html',
-            'search': 'home/search.html'
+            'search': 'home/search.html',
+            'rank_list': rank_list
         }
         return render(request, 'common/home.html', context)
 
