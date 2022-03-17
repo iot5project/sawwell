@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django_request_mapping import request_mapping
 
@@ -13,6 +13,39 @@ class CeoView(View):
         context = {
             'center': 'adminceo/ceologin.html'
         }
+        return render(request, 'common/main.html', context)
+
+    @request_mapping("/loginimpl", method="post")
+    def loginimpl(self, request):
+        id = request.POST['id']
+        password = request.POST['password']
+        context = dict()
+        try:
+            cust = Ceo.objects.get(id=id)
+            if cust.password == password:
+                request.session['sessionid'] = id
+                return redirect('/')
+            else:
+                raise Exception
+        except:
+            context['center'] = 'adminceo/ceologin.html'
+            context['error'] = 'error'
+            return render(request, 'common/main.html', context)
+
+    @request_mapping("/idfindimpl", method="post")
+    def idfindimpl(self, request):
+        email = request.POST.get('email', False)
+        context = {}
+        try:
+            cust = Cust.objects.get(email=email)
+            if cust.email == email:
+                context['center'] = 'identify/OK_idfind.html'
+                context['Find_id'] = cust.id
+            else:
+                raise Exception
+        except:
+            context['center'] = 'identify/idfind.html'
+            context['error'] = 'error'
         return render(request, 'common/main.html', context)
 
     @request_mapping('/ceopage/<int:pk>/', method='get')
@@ -50,6 +83,8 @@ class CeoView(View):
         obj.email = email
         obj.save()
         return redirect('/identify/mypage')
+
+
 
 
 
