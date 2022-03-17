@@ -19,6 +19,7 @@ class ReviewView(View):
             'objs': obj,
             'market': market,
             'robjs': robjs,
+            'reply': reply_list,
             'rpobjs': reply_list,
             'real_obj': review_list,
             'center': 'review/list.html',

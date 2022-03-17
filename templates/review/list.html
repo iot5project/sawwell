@@ -1,3 +1,5 @@
+
+
 {% load static %}
 <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 <script>
@@ -7,183 +9,33 @@ function toggle_div(id) {
 }
 </script>
 <style>
-  body{margin-top:20px;
-background:#eee;
+  body{
+    margin-top:20px;
+    background:#eee;
+    color: #708090;
 }
-.review-list ul li .left span {
-     width: 32px;
-     height: 32px;
-     display: inline-block;
+.icon-1x {
+    font-size: 24px !important;
 }
- .review-list ul li .left {
-     flex: none;
-     max-width: none;
-     margin: 0 10px 0 0;
+a{
+    text-decoration:none;
 }
- .review-list ul li .left span img {
-     border-radius: 50%;
+.text-primary, a.text-primary:focus, a.text-primary:hover {
+    color: #00ADBB!important;
 }
- .review-list ul li .right h4 {
-     font-size: 16px;
-     margin: 0;
-     display: flex;
+.text-black, .text-hover-black:hover {
+    color: #000 !important;
 }
- .review-list ul li .right h4 .gig-rating {
-     display: flex;
-     align-items: center;
-     margin-left: 10px;
-     color: #ffbf00;
-}
- .review-list ul li .right h4 .gig-rating svg {
-     margin: 0 4px 0 0px;
-}
- .country .country-flag {
-     width: 16px;
-     height: 16px;
-     vertical-align: text-bottom;
-     margin: 0 7px 0 0px;
-     border: 1px solid #fff;
-     border-radius: 50px;
-     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
- .country .country-name {
-     color: #95979d;
-     font-size: 13px;
-     font-weight: 600;
-}
- .review-list ul li {
-     border-bottom: 1px solid #dadbdd;
-     padding: 0 0 30px;
-     margin: 0 0 30px;
-}
- .review-list ul li .right {
-     flex: auto;
-}
- .review-list ul li .review-description {
-     margin: 20px 0 0;
-}
- .review-list ul li .review-description p {
-     font-size: 14px;
-     margin: 0;
-}
- .review-list ul li .publish {
-     font-size: 13px;
-     color: #95979d;
-}
+.container-md{
+  display:table;
+  width:1300px;
+  height:70px;
+  margin-bottom:10px;
+  padding:10px;
 
-.review-section h4 {
-     font-size: 20px;
-     color: #222325;
-     font-weight: 700;
-}
- .review-section .stars-counters tr .stars-filter.fit-button {
-     padding: 6px;
-     border: none;
-     color: #4a73e8;
-     text-align: left;
-}
- .review-section .fit-progressbar-bar .fit-progressbar-background {
-     position: relative;
-     height: 8px;
-     background: #efeff0;
-     -webkit-box-flex: 1;
-     -ms-flex-positive: 1;
-     flex-grow: 1;
-     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-     background-color: #ffffff;
-    ;
-     border-radius: 999px;
-}
- .review-section .stars-counters tr .star-progress-bar .progress-fill {
-     background-color: #ffb33e;
-}
- .review-section .fit-progressbar-bar .progress-fill {
-     background: #2cdd9b;
-     background-color: rgb(29, 191, 115);
-     height: 100%;
-     position: absolute;
-     left: 0;
-     z-index: 1;
-     border-radius: 999px;
-}
- .review-section .fit-progressbar-bar {
-     display: flex;
-     align-items: center;
-}
- .review-section .stars-counters td {
-     white-space: nowrap;
-}
- .review-section .stars-counters tr .progress-bar-container {
-     width: 100%;
-     padding: 0 10px 0 6px;
-     margin: auto;
-}
- .ranking h6 {
-     font-weight: 600;
-     padding-bottom: 16px;
-}
- .ranking li {
-     display: flex;
-     justify-content: space-between;
-     color: #95979d;
-     padding-bottom: 8px;
-}
- .review-section .stars-counters td.star-num {
-     color: #4a73e8;
-}
- .ranking li>span {
-     color: #62646a;
-     white-space: nowrap;
-     margin-left: 12px;
-}
- .review-section {
-     border-bottom: 1px solid #dadbdd;
-     padding-bottom: 24px;
-     margin-bottom: 34px;
-     padding-top: 64px;
-}
- .review-section select, .review-section .select2-container {
-     width: 188px !important;
-     border-radius: 3px;
-}
-ul, ul li {
-    list-style: none;
-    margin: 0px;
-}
-.helpful-thumbs, .helpful-thumb {
-    display: flex;
-    align-items: center;
-    font-weight: 700;
 }
 </style>
-<!--<style>-->
-<!--  body{-->
-<!--    margin-top:20px;-->
-<!--    background:#eee;-->
-<!--    color: #708090;-->
-<!--}-->
-<!--.icon-1x {-->
-<!--    font-size: 24px !important;-->
-<!--}-->
-<!--a{-->
-<!--    text-decoration:none;-->
-<!--}-->
-<!--.text-primary, a.text-primary:focus, a.text-primary:hover {-->
-<!--    color: #00ADBB!important;-->
-<!--}-->
-<!--.text-black, .text-hover-black:hover {-->
-<!--    color: #000 !important;-->
-<!--}-->
-<!--.container-md{-->
-<!--  display:table;-->
-<!--  width:1300px;-->
-<!--  height:70px;-->
-<!--  margin-bottom:10px;-->
-<!--  padding:10px;-->
-
-<!--}-->
-<!--</style>-->
-<!--<body>-->
+<body>
   <main id="main">
     <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
@@ -201,6 +53,13 @@ ul, ul li {
       </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
+      <script>
+          var error = ['{{error}}']
+
+if(error[0] == {{error}}){
+  alert('아이디 또는 비밀번호가 잘못되었습니다.');
+}
+      </script>
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
@@ -213,26 +72,7 @@ ul, ul li {
       </div>
     </section><!-- End Breadcrumbs -->
     <!-- ======= Blog Section ======= -->
-        <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-8 entries">
-            <article class="entry">
-              <h2 class="entry-title">
-                <span>{{market.marketname}} 리뷰</span>
-              </h2>
-              <form action="/review/reviewimpl/{{market.seochono}}/" method="post">
-                  {% csrf_token %}
-                  평가 : <input type="text" name="content" style="width:600px;height:40px;font-size:10px;">
-                  <p></p>
-                  별점 : <input type="number" name="star" min="1" max="5">
-                  <p></p>
-                <input type="submit" value="submit">
-              </form>
-            </article>
-          </div>
-        </div>
-      </div>
+  <section id="blog" class="blog">
     <div class="container">
       <div class="review-list">
         <ul>
@@ -241,7 +81,7 @@ ul, ul li {
                   {% for r in real_obj  %}
                     <div class="right">
                         <h4>
-                            {{r.reviewno}} . {{r.custno.name}}
+                            {{r.custno.name}}
                             <span class="gig-rating text-body-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
                                     <path
@@ -255,21 +95,11 @@ ul, ul li {
                         <br>
                         <div class="review-description">
                             <p>
-                                {{r.content}}  {{r.reviewno}}
+                               {{r.reviewno}} : {{r.content}}
                             </p>
                           <br>
                         </div>
                         <div>
-                        <form action="/review/replyimpl/{{market.seochono}}/" method="post">
-                            {% csrf_token %}
-                                <br>
-                                  reply:<input type="text" name="reply" id="reply" style="width:700px;height:40px;font-size:10px;"><br>
-                                <br>
-                                    <br>
-                                {{r.reviewno}}<input type="hidden" name="reviewno" value="{{r.reviewno}}">
-                                <br>
-                                <input type="submit" value="답글 달기">
-                        </form>
                         </div>
                         {% endfor %}
                         <div class="helpful-thumbs">
@@ -280,7 +110,6 @@ ul, ul li {
                         <div class="response-item mt-4 d-flex">
                             <div class="left">
                                 <span>
-                                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="profile-pict-img img-fluid" alt="" />
                                 </span>
                             </div>
                             {% for rp in rpobjs  %}
@@ -310,4 +139,4 @@ ul, ul li {
         </div>
     </div>
   </section>
-</main>
+  </main><!-- End #main -->

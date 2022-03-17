@@ -11,13 +11,11 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="/">Saw Well</a></h1>
+      <h1 class="logo"><a href="/ceo/mypage">Saw Well CEO</a></h1>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="/">Home</a></li>
-          <li><a class="active" href="/market/{{name.categori}}">{{name.categori}}</a></li>
-          <li><a class="nav-link scrollto" href="/review/reviewlist">review</a> </li>
-          <li><a class="active" href="/market/menu">menu</a> </li>
+          <li><a class="active" href="/ceo/mypage">mypage</a></li>
+          <li><a class="nav-link scrollto" href="/identify/logout">logout</a> </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -62,86 +60,10 @@
                             </ul>
                         </div>
                     </div>
+                    <button>update</button>
                 </div><!-- .col-md-12 close -->
             </div><!-- .row close -->
         </div><!-- .containe close -->
     </section><!-- #price close -->
     <!-- ======= Blog Section ======= -->
-  <section id="blog" class="blog">
-    <div class="container">
-      <div class="review-list">
-        <ul>
-            <li>
-                <div class="d-flex">
-                  {% for r in real_obj  %}
-                    <div class="right">
-                        <h4>
-                            {{r.reviewno}} . {{r.custno.name}}
-                            <span class="gig-rating text-body-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" width="15" height="15">
-                                    <path
-                                        fill="currentColor"
-                                        d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
-                                    ></path>
-                                </svg>
-                                {{r.star}}
-                            </span>
-                        </h4>
-                        <br>
-                        <div class="review-description">
-                            <p>
-                                {{r.content}}  {{r.reviewno}}
-                            </p>
-                          <br>
-                        </div>
-                        <div>
-                        <form action="/review/replyimpl/{{market.seochono}}/" method="post">
-                            {% csrf_token %}
-                                <br>
-                                  reply:<input type="text" name="reply" id="reply" style="width:700px;height:40px;font-size:10px;"><br>
-                                <br>
-                                    <br>
-                                {{r.reviewno}}<input type="hidden" name="reviewno" value="{{r.reviewno}}">
-                                <br>
-                                <input type="submit" value="답글 달기">
-                        </form>
-                        </div>
-                        {% endfor %}
-                        <div class="helpful-thumbs">
-                            <div class="helpful-thumb text-body-2">
-
-                            </div>
-                        </div>
-                        <div class="response-item mt-4 d-flex">
-                            <div class="left">
-                                <span>
-                                </span>
-                            </div>
-                            {% for rp in rpobjs  %}
-                            <div class="right">
-                                <h4>
-                                    {{rp.ceoid.name}}
-                                </h4>
-                                <div class="country d-flex align-items-center">
-                                    <span>
-                                    </span>
-                                </div>
-                                <div class="review-description">
-                                    <p>
-                                      {{rp.pcontent}}
-                                    </p>
-                                <br>
-                            </div>
-                            <div>
-                            {% endfor %}
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        </div>
-    </div>
-  </section>
   </main><!-- End #main -->

@@ -1,0 +1,51 @@
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="/">Saw Well</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="/">Home</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <ol>
+      <li><a href="/">Home</a></li>
+    </ol>
+    <h2>login</h2>
+
+  </div>
+</section><!-- End Breadcrumbs -->
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-8 entries">
+        <form action="/ceo/update" method="get">
+        <article class="entry">
+          <h2 class="entry-title">
+            <span>MY PAGE</span><br><br>
+            id<input type="text" name="id" value="{{obj.id}}" readonly><br>
+          </h2>
+          <h2 class="entry-title">
+            password<input type="text" name="password" value="{{obj.password}}"><br>
+          </h2>
+          <h2 class="entry-title">
+            name<input type="text" name="name" value="{{obj.name}}"><br>
+          </h2>
+        </article>
+        <input type="submit" value="UPDATE">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
