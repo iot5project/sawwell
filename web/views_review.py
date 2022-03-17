@@ -30,28 +30,18 @@ class ReviewView(View):
         star = request.POST['star']
         content = request.POST['content']
         context = dict()
-        if request.session['sessionid'] is None:
-            context['error'] = 'error'
-            redirect_action = '/review/reviewlist/' + str(pk) + '/'
-            print(context['error'])
-            return redirect(redirect_action, context)
-        else:
+        try:
             id = request.session['sessionid']
             custno = Cust.objects.get(id=id)
             seochono = Seocho.objects.get(seochono=pk)
             Review(content=content, star=star, seochono=seochono, custno=custno).save()
             redirect_action = '/review/reviewlist/' + str(pk) + '/'
             return redirect(redirect_action, context)
-
-    @request_mapping("/reviewwriteimpl/<int:pk>", method="get")
-    def reviewwriteimpl(self, request, pk):
-        reviewno = request.get['write']
-        reply_list = Reply.objects.filter(seochono=pk, reviewno=reviewno)
-        context = {
-            'rpobjs': reply_list
-        }
-        print("write ok")
-        return render(request, context)
+        except:
+            context['error'] = 'error'
+            redirect_action = '/review/reviewlist/' + str(pk) + '/'
+            print(context['error'])
+            return redirect(redirect_action, context)
 
     @request_mapping("/replyimpl", method="post")
     def replyimpl(self, request):
@@ -63,3 +53,5 @@ class ReviewView(View):
         Reply(content=content, reviewno=reviewno, ceoid=ceoid).save()
         print("register ok")
         return render(request, 'common/main.html', context)
+
+

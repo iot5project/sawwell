@@ -5,3 +5,5 @@ DELETE FROM market;
 DELETE FROM cust;
 DELETE FROM categori;
 DELETE FROM food;
+alter table ceo modify regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+alter table cust modify regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;

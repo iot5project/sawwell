@@ -84,19 +84,6 @@ class Seochofood(models.Model):
         db_table = 'seochofood'
 
 
-class Reply(models.Model):
-    replyid = models.AutoField(primary_key=True)
-    reviewno = models.ForeignKey('Review', models.DO_NOTHING, db_column='reviewno')
-    seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
-    ceoid = models.ForeignKey(Ceo, on_delete=models.CASCADE, db_column='ceoid')
-    pcontent = models.CharField(max_length=100, blank=True, null=True)
-    regdate = models.DateField(auto_now=True)
-
-    class Meta:
-        db_table = 'reply'
-
-
-
 class Review(models.Model):
     reviewno = models.AutoField(primary_key=True)
     seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
@@ -107,3 +94,15 @@ class Review(models.Model):
 
     class Meta:
         db_table = 'review'
+
+
+class Reply(models.Model):
+    replyid = models.AutoField(primary_key=True)
+    reviewno = models.ForeignKey(Review, models.DO_NOTHING, db_column='reviewno')
+    seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
+    ceoid = models.ForeignKey(Ceo, on_delete=models.CASCADE, db_column='ceoid')
+    pcontent = models.CharField(max_length=100, blank=True, null=True)
+    regdate = models.DateField(auto_now=True)
+
+    class Meta:
+        db_table = 'reply'

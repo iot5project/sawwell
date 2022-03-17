@@ -72,7 +72,7 @@ class IdentifyView(View):
             else:
                 raise Exception
         except:
-            context['center'] = 'identify/idfind.html'
+            context['center'] = 'identify/idFind.html'
             context['error'] = 'error'
         return render(request, 'common/main.html', context)
 
@@ -134,7 +134,7 @@ class IdentifyView(View):
         id = request.session['sessionid']
         obj = Cust.objects.get(id=id)
         context = {
-            'center': 'identify/ceoupdate.html',
+            'center': 'identify/update.html',
             'obj': obj
         }
         return render(request, 'common/main.html', context)

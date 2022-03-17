@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.views import View
 from django_request_mapping import request_mapping
 
-from web.models import Seocho, Review
+from web.models import Seocho, Review, Reply
 
 
 @request_mapping('')
@@ -15,8 +15,7 @@ class MyView(View):
 
     @request_mapping('/')
     def home(self, request):
-        rank_list = Review.objects.select_related('seochono').annotate(avg_star=Avg('star')).distinct().values('avg_star','seochono').order_by('-avg_star')[:9]
-        print(rank_list)
+        rank_list = Review.objects.select_related('seochono').annotate(avg_star=Avg('star')).distinct().filter().order_by('-avg_star')[:9]
         context = {
             'popular': 'home/popular.html',
             'categori': 'home/categori.html',
