@@ -8,14 +8,14 @@
       <p>Here are the top 9 highly rated restaurants</p>
     </div>
 
-    {% for r in rank_list %}
+    {% for r in seochono %}
     <div class="row portfolio-container">
       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <img src="static/assets/img/market/{{r.seochono.seochono}}.jpg" class="img-fluid" alt="" width="100%" height="100%">
+        <img src="static/assets/img/market/{{r.seochono}}.jpg" class="img-fluid" alt="" width="100%" height="100%">
         <div class="portfolio-info">
-          <h4>{{r.seochono.marketname}}</h4>
+          <h4>{{r.seochono}}</h4>
           <p>{{r.avg_star}}</p>
-          <button onclick="location.href ='/market/menu/{{r.seochono.seochono}}'">메뉴보기</button>
+          <button onclick="location.href ='/market/menu/{{r.seochono}}'">메뉴보기</button>
         </div>
       </div>
       {% endfor %}

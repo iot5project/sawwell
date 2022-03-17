@@ -41,7 +41,7 @@ class IdentifyView(View):
     def logout(self, request):
         if request.session['sessionid'] is not None:
             del request.session['sessionid']
-        return render(request, 'common/home.html')
+        return redirect('/')
 
     @request_mapping("/loginimpl", method="post")
     def loginimpl(self, request):

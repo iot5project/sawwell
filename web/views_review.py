@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django_request_mapping import request_mapping
 
@@ -13,6 +13,7 @@ class ReviewView(View):
         obj = Cust.objects.all()
         robjs = Review.objects.all()
         review_list = Review.objects.select_related('seochono').filter(seochono=pk)
+        reply_list = Reply.objects.filter(seochono=pk)
         market = Seocho.objects.get(seochono=pk)
         context = {
             'objs': obj,
@@ -28,14 +29,19 @@ class ReviewView(View):
     def reviewimpl(self, request, pk):
         star = request.POST['star']
         content = request.POST['content']
-        id = request.session['sessionid']
-        custno = Cust.objects.get(id=id)
-        seochono = Seocho.objects.get(seochono=pk)
-        print(star, content)
-        context = {'center': 'review/list.html'}
-        Review(content=content, star=star, seochono=seochono, custno=custno).save()
-        print("write ok")
-        return render(request, 'common/main.html', context)
+        context = dict()
+        if request.session['sessionid'] is None:
+            context['error'] = 'error'
+            redirect_action = '/review/reviewlist/' + str(pk) + '/'
+            print(context['error'])
+            return redirect(redirect_action, context)
+        else:
+            id = request.session['sessionid']
+            custno = Cust.objects.get(id=id)
+            seochono = Seocho.objects.get(seochono=pk)
+            Review(content=content, star=star, seochono=seochono, custno=custno).save()
+            redirect_action = '/review/reviewlist/' + str(pk) + '/'
+            return redirect(redirect_action, context)
 
     @request_mapping("/reviewwriteimpl/<int:pk>", method="get")
     def reviewwriteimpl(self, request, pk):
@@ -43,11 +49,9 @@ class ReviewView(View):
         reply_list = Reply.objects.filter(seochono=pk, reviewno=reviewno)
         context = {
             'rpobjs': reply_list
-                   }
-
-
+        }
         print("write ok")
-        return render(request, 'common/main.html', context)
+        return render(request, context)
 
     @request_mapping("/replyimpl", method="post")
     def replyimpl(self, request):

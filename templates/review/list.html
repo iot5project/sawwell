@@ -1,9 +1,16 @@
+
+
 {% load static %}
 <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 <script>
 function toggle_div(id) {
      var e = document.getElementById(id);
      e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+}
+var error = ['{{error}}']
+
+if(error[0] == {{error}}){
+  alert('아이디 또는 비밀번호가 잘못되었습니다.');
 }
 </script>
 <style>
@@ -45,7 +52,7 @@ a{
         <ul>
           <li><a class="nav-link scrollto " href="/">Home</a></li>
           <li><a class="nav-link scrollto" href="/review/reviewlist/{{market.seochono}}/">review</a> </li>
-          <li><a class="nav-link scrollto" href="/market/menu">menu</a> </li>
+          <li><a class="nav-link scrollto" href="/market/menu/{{market.seochono}}/">menu</a> </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -69,9 +76,8 @@ a{
           <div class="col-lg-8 entries">
             <article class="entry">
               <h2 class="entry-title">
-                <a href="blog-single.html">market_name</a>
+                <span>{{market.marketname}} 리뷰</span>
               </h2>
-              <h4>{{request.session.sessionid}}</h4>
               <form action="/review/reviewimpl/{{market.seochono}}/" method="post">
                   {% csrf_token %}
                   별점<input type="number" name="star" min="1" max="5"><br>
