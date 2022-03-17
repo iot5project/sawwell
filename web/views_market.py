@@ -127,7 +127,7 @@ class MarketView(View):
         market_img = Seocho.objects.get(seochono=pk)
         market_name = Seocho.objects.get(seochono=pk)
         context = {
-            'center': 'market/ceoadmin.html',
+            'center': 'market/menu.html',
             'name': market_name,
             'menu_list': menu_list,
             'market_img': market_img
