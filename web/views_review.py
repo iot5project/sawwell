@@ -13,7 +13,7 @@ class ReviewView(View):
         obj = Cust.objects.all()
         robjs = Review.objects.all()
         review_list = Review.objects.select_related('seochono').filter(seochono=pk)
-        reply_list = Reply.objects.filter(seochono=pk)
+        reply_list = Reply.objects.select_related('ceoid').filter(seochono=pk)
         market = Seocho.objects.get(seochono=pk)
         context = {
             'objs': obj,
@@ -34,6 +34,7 @@ class ReviewView(View):
             id = request.session['sessionid']
             custno = Cust.objects.get(id=id)
             seochono = Seocho.objects.get(seochono=pk)
+            print(custno, seochono)
             Review(content=content, star=star, seochono=seochono, custno=custno).save()
             redirect_action = '/review/reviewlist/' + str(pk) + '/'
             return redirect(redirect_action, context)
@@ -43,15 +44,25 @@ class ReviewView(View):
             print(context['error'])
             return redirect(redirect_action, context)
 
-    @request_mapping("/replyimpl", method="post")
-    def replyimpl(self, request):
-        content = request.POST['reply']
-        reviewno = Review.objects.get(reviewno='1')
-        ceoid = Ceo.objects.get(ceoid='1')
-        print(content)
-        context = {'center': 'review/list.html'}
-        Reply(content=content, reviewno=reviewno, ceoid=ceoid).save()
-        print("register ok")
-        return render(request, 'common/main.html', context)
+    @request_mapping("/replyimpl/<int:pk>/", method="post")
+    def replyimpl(self, request, pk):
+        pcontent = request.POST['reply']
+        reviewno = request.POST['reviewno']
+        context = dict()
+        print(pcontent)
+        print(reviewno)
+        try:
+            id = request.session['sessionid']
+            ceoid = Ceo.objects.get(id=id)
+            seochono = Seocho.objects.get(seochono=pk)
+            print(ceoid, seochono)
+            Reply(pcontent=pcontent, reivewno=reviewno, ceoid=ceoid, seochono=seochono).save()
+            redirect_action = '/review/reviewlist/' + str(pk) + '/'
+            return redirect(redirect_action, context)
+        except:
+            context['error'] = 'error'
+            redirect_action = '/review/reviewlist/' + str(pk) + '/'
+            print(context['error'])
+            return redirect(redirect_action, context)
 
 

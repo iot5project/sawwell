@@ -259,6 +259,18 @@ ul, ul li {
                             </p>
                           <br>
                         </div>
+                        <div>
+                        <form action="/review/replyimpl/{{market.seochono}}/" method="post">
+                            {% csrf_token %}
+                                <br>
+                                  reply:<input type="text" name="reply" id="reply" style="width:700px;height:40px;font-size:10px;"><br>
+                                <br>
+                                    <br>
+                                {{r.reviewno}}<input type="hidden" name="reviewno" value="{{r.reviewno}}">
+                                <br>
+                                <input type="submit" value="답글 달기">
+                        </form>
+                        </div>
                         {% endfor %}
                         <div class="helpful-thumbs">
                             <div class="helpful-thumb text-body-2">
@@ -274,7 +286,7 @@ ul, ul li {
                             {% for rp in rpobjs  %}
                             <div class="right">
                                 <h4>
-                                    Gurdeep Osahan
+                                    {{rp.ceoid.name}}
                                 </h4>
                                 <div class="country d-flex align-items-center">
                                     <span>
@@ -288,13 +300,6 @@ ul, ul li {
                             </div>
                             <div>
                             {% endfor %}
-                                <form action="review/replyimpl/{{seochono.seochono}}" method="post">
-                                    {% csrf_token %}
-                                <br>
-                                  reply:<input type="text" name="reply" style="width:700px;height:40px;font-size:10px;"><br>
-                                <br>
-                                <input type="submit" value="답글 달기">
-                                </form>
                               </div>
                             </div>
                         </div>
@@ -306,87 +311,3 @@ ul, ul li {
     </div>
   </section>
 </main>
-<!--      <div class="row">-->
-<!--        &lt;!&ndash; Main content &ndash;&gt;-->
-<!--        <div class="col-lg-9 mb-3">-->
-<!--          <div class="row text-left mb-5">-->
-<!--            <div class="col-lg-6 mb-3 mb-sm-0">-->
-<!--              <div class="dropdown bootstrap-select form-control form-control-lg bg-white bg-op-9 text-sm w-lg-50" style="width: 100%;">-->
-<!--              <select class="form-control form-control-lg bg-white bg-op-9 text-sm w-lg-50" data-toggle="select" tabindex="-98">-->
-<!--                <option> Categories </option>-->
-<!--                <option> Learn </option>-->
-<!--                <option> Share </option>-->
-<!--                <option> Build </option>-->
-<!--              </select>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="col-lg-6 text-lg-right">-->
-<!--              <div class="dropdown bootstrap-select form-control form-control-lg bg-white bg-op-9 ml-auto text-sm w-lg-50" style="width: 100%;">-->
-<!--                  <select class="form-control form-control-lg bg-white bg-op-9 ml-auto text-sm w-lg-50" data-toggle="select" tabindex="-98">-->
-<!--                    <option> Filter by </option>-->
-<!--                    <option> Votes </option>-->
-<!--                    <option> Replys </option>-->
-<!--                    <option> Views </option>-->
-<!--                  </select>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        &lt;!&ndash;post1&ndash;&gt;-->
-<!--      <div class="container-md">-->
-<!--      {% for r in real_obj  %}-->
-<!--        <div class="col">-->
-<!--          <div class="card shadow-sm">-->
-<!--           <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">-->
-<!--            <div class="row align-items-center">-->
-<!--              <div class="col-md-8 mb-3 mb-sm-0">-->
-<!--                <h5>-->
-<!--                  <a href="#" class="text-primary">{{r.reviewno}} . {{r.custno.name}}</a>-->
-<!--                </h5>-->
-<!--                <p class="text-sm"><a class="text-black" href="#">{{r.content}}  {{r.reviewno}}</a></p>-->
-<!--                <div class="text-sm op-5"> <a class="text-black mr-2" href="#">별점: {{r.star}}</a></div>-->
-<!--              </div>-->
-<!--              <div class="col-md-4 op-7">-->
-<!--                <div class="row text-center op-7">-->
-<!--                  <form> </form>-->
-<!--                  <button class="col px-1" onclick="toggle_div('reply{{r.reviewno}}')"> <i class="ion-ios-chatboxes-outline icon-1x" ></i> <span class="d-block text-sm">Replys</span></button>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      &lt;!&ndash; /post4 toggle/ &ndash;&gt;-->
-<!--      <div class="container-md">-->
-<!--        <div id="reply{{r.reviewno}}" style="display: none">-->
-<!--        <h3>REPLY</h3>-->
-<!--        {% for rp in rpobjs  %}-->
-<!--            <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">-->
-<!--            <div class="row align-items-center">-->
-<!--              <div class="col-md-8 mb-3 mb-sm-0">-->
-<!--                <h5>-->
-<!--                  <a href="#" class="text-primary">ceo 님 </a>-->
-<!--                </h5>-->
-<!--                <p class="text-sm"><a class="text-black" href="#">{{rp.pcontent}}</a></p></div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          {% endfor %}-->
-<!--          </div>-->
-<!--            <button onclick="toggle_div('reply_write{{r.reviewno}}')">write reply</button>-->
-<!--            <div id="reply_write{{r.reviewno}}" style="display: none">-->
-<!--              <form action="review/replyimpl/{{seochono.seochono}}" method="post">-->
-<!--                {% csrf_token %}-->
-<!--                <br>-->
-<!--                reply:<input type="text" name="reply" style="width:700px;height:40px;font-size:10px;"><br>-->
-<!--                <br>-->
-<!--                <input type="submit" value="답글 달기">-->
-<!--              </form>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    {% endfor %}-->
-<!--  </div>-->
-<!--&lt;!&ndash;/post1&ndash;&gt;-->
-<!--</section>-->
-<!--</main>&lt;!&ndash; End #main &ndash;&gt;-->

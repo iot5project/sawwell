@@ -1,9 +1,10 @@
 from django.contrib.auth import logout
+from django.db.models import Avg
 from django.shortcuts import render, redirect
 from django.views import View
 from django_request_mapping import request_mapping
 
-from web.models import Seocho, Seochofood, Ceo, Review
+from web.models import Seocho, Seochofood, Ceo, Review, Cust, Reply
 
 
 @request_mapping('/ceo')
@@ -72,7 +73,7 @@ class CeoView(View):
             'search': 'home/search.html',
             'seochono': rank_list
         }
-        return redirect(request, 'home.hmtl')
+        return redirect(request, 'home.hmtl', context)
 
     @request_mapping("/updateview", method="get")
     def updateview(self, request):
@@ -140,6 +141,28 @@ class CeoView(View):
         except:
             context['center'] = 'adminceo/ceopwdFind.html'
             context['error'] = 'error'
+        return render(request, 'common/main.html', context)
+
+    @request_mapping('/ceoadmin/<int:pk>/', method='get')
+    def ceoadmin(self, request, pk):
+        menu_list = Seochofood.objects.filter(seochono=pk)
+        market_img = Seocho.objects.get(seochono=pk)
+        market_name = Seocho.objects.get(seochono=pk)
+        obj = Cust.objects.all()
+        robjs = Review.objects.all()
+        review_list = Review.objects.select_related('seochono').filter(seochono=pk)
+        reply_list = Reply.objects.select_related('ceoid').filter(seochono=pk)
+        market = Seocho.objects.get(seochono=pk)
+        context = {
+            'center': 'adminceo/ceoadmin.html',
+            'name': market_name,
+            'menu_list': menu_list,
+            'market_img': market_img,
+            'market': market,
+            'robjs': robjs,
+            'rpobjs': reply_list,
+            'real_obj': review_list,
+        }
         return render(request, 'common/main.html', context)
 
 
