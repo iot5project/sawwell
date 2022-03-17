@@ -75,15 +75,16 @@ def ceo():
 
 
 def reply():
-    print('INSERT INTO `reply` ( `content`, `ceoid`, `reviewno`) VALUES')
+    print('INSERT INTO `reply` ( `content`, `ceoid`, `reviewno`, `seochono`) VALUES')
     for i in range(1, 316):
         content = 'market' + str(i) + 'ceo' + str(i) + 'id' + str(i)
         ceoid = i
+        reviewno = i
         seochono = i
         split = "'" + ',' + "'"
-        print("('" + content + split + str(ceoid) + split + str(seochono) + "'),")
+        print("('" + content + split + str(ceoid) + split + str(seochono) + split + str(seochono) + "'),")
         if i == 315:
-            print("('" + content + split + str(ceoid) + split + str(seochono) + "');")
+            print("('" + content + split + str(ceoid) + split + str(seochono) + split + str(seochono) + "');")
 
 
-# reply()
+#reply()

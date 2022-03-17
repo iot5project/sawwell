@@ -12,7 +12,6 @@ class ReviewView(View):
     def reviewlist(self, request, pk):
         obj = Cust.objects.all()
         robjs = Review.objects.all()
-        reply_list = Review.objects.select_related('seochono').filter(seochono=pk)
         review_list = Review.objects.select_related('seochono').filter(seochono=pk)
         market = Seocho.objects.get(seochono=pk)
         context = {
@@ -35,6 +34,20 @@ class ReviewView(View):
         print(star, content)
         context = {'center': 'review/list.html'}
         Review(content=content, star=star, seochono=seochono, custno=custno).save()
+        print("write ok")
+        return render(request, 'common/main.html', context)
+
+
+
+    @request_mapping("/reviewwriteimpl/<int:pk>", method="get")
+    def reviewwriteimpl(self, request,pk):
+        reviewno = request.get['write']
+        reply_list = Reply.objects.filter(seochono=pk, reviewno=reviewno)
+        context = {
+            'rpobjs': reply_list
+                   }
+
+
         print("write ok")
         return render(request, 'common/main.html', context)
 
