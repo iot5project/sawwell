@@ -126,7 +126,8 @@ a{
               </div>
               <div class="col-md-4 op-7">
                 <div class="row text-center op-7">
-                  <button class="col px-1" onclick="toggle_div('reply1')"> <i class="ion-ios-chatboxes-outline icon-1x" ></i> <span class="d-block text-sm">Replys</span> </button>
+                  <form></form>
+                  <button class="col px-1" onclick="toggle_div('reply{{r.reviewno}}')"> <i class="ion-ios-chatboxes-outline icon-1x" ></i> <span class="d-block text-sm">Replys</span></button>
                   </div>
                 </div>
               </div>
@@ -135,7 +136,7 @@ a{
         </div>
       <!-- /post4 toggle/ -->
       <div class="container-md">
-        <div id="reply1" style="display: none">
+        <div id="reply{{r.reviewno}}" style="display: none">
         <h3>REPLY</h3>
         {% for rp in rpobjs  %}
             <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
@@ -144,13 +145,13 @@ a{
                 <h5>
                   <a href="#" class="text-primary">ceo 님 </a>
                 </h5>
-                <p class="text-sm"><a class="text-black" href="#">{{rp.content}}</a></p></div>
+                <p class="text-sm"><a class="text-black" href="#">{{rp.pcontent}}</a></p></div>
               </div>
             </div>
           {% endfor %}
           </div>
-            <button onclick="toggle_div('reply_write1')">write reply</button>
-            <div id="reply_write1" style="display: none">
+            <button onclick="toggle_div('reply_write{{r.reviewno}}')">write reply</button>
+            <div id="reply_write{{r.reviewno}}" style="display: none">
               <form action="review/replyimpl/{{seochono.seochono}}" method="post">
                 {% csrf_token %}
                 <br>

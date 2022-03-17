@@ -23,7 +23,7 @@ class CeoAdmin(admin.ModelAdmin):
 
 
 class ReplyAdmin(admin.ModelAdmin):
-    list_display = ('replyid', 'reviewno', 'ceoid', 'content', 'regdate')
+    list_display = ('replyid', 'reviewno', 'seochono','ceoid', 'pcontent', 'regdate')
 
 
 class ReviewAdmin(admin.ModelAdmin):
