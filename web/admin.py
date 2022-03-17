@@ -36,3 +36,4 @@ class SeochoAdmin(admin.ModelAdmin):
 
 class SeochofoodAdmin(admin.ModelAdmin):
     list_display = ('foodid', 'marketno', 'name', 'price')
+

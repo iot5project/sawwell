@@ -47,6 +47,7 @@ class ReviewView(View):
             'rpobjs': reply_list
                    }
 
+
         print("write ok")
         return render(request, 'common/main.html', context)
 

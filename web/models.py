@@ -96,6 +96,7 @@ class Reply(models.Model):
         db_table = 'reply'
 
 
+
 class Review(models.Model):
     reviewno = models.AutoField(primary_key=True)
     seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
