@@ -32,21 +32,6 @@ class CeoView(View):
             context['error'] = 'error'
             return render(request, 'common/main.html', context)
 
-    @request_mapping("/idfindimpl", method="post")
-    def idfindimpl(self, request):
-        email = request.POST.get('email', False)
-        context = {}
-        try:
-            cust = Cust.objects.get(email=email)
-            if cust.email == email:
-                context['center'] = 'identify/OK_idfind.html'
-                context['Find_id'] = cust.id
-            else:
-                raise Exception
-        except:
-            context['center'] = 'identify/idfind.html'
-            context['error'] = 'error'
-        return render(request, 'common/main.html', context)
 
     @request_mapping('/ceopage/<int:pk>/', method='get')
     def ceopage(self, request, pk):
@@ -83,6 +68,54 @@ class CeoView(View):
         obj.email = email
         obj.save()
         return redirect('/identify/mypage')
+
+    @request_mapping("/ceoidfind")
+    def ceoidfind(self, request):
+        context = {
+            'center': 'adminceo/ceoidFind.html'
+        }
+        return render(request, 'common/main.html', context)
+
+    @request_mapping("/ceopwdfind")
+    def ceopwdfind(self, request):
+        context = {
+            'center': 'adminceo/ceopwdFind.html'
+        }
+        return render(request, 'common/main.html', context)
+
+    @request_mapping("/ceoidfindimpl", method="post")
+    def ceoidfindimpl(self, request):
+        name = request.POST.get('name', False)
+        context = dict()
+        try:
+            ceo = Ceo.objects.get(name=name)
+            if ceo.name == name:
+                context['center'] = 'adminceo/ceoOK_idfind.html'
+                context['Find_id'] = ceo.id
+            else:
+                raise Exception
+        except:
+            context['center'] = 'adminceo/ceoidFind.html'
+            context['error'] = 'error'
+        return render(request, 'common/main.html', context)
+
+    @request_mapping("/ceopwdfindimpl", method="post")
+    def ceopwdfindimpl(self, request):
+        id = request.POST.get('id', False)
+        name = request.POST.get('name', False)
+        context = {}
+        try:
+            ceo = Ceo.objects.get(id=id)
+            if ceo.name == name:
+                context['center'] = 'adminceo/ceoOK_pwdfind.html'
+                context['Find_pwd'] = ceo.password
+            else:
+                raise Exception
+        except:
+            context['center'] = 'adminceo/ceopwdFind.html'
+            context['error'] = 'error'
+        return render(request, 'common/main.html', context)
+
 
 
 
