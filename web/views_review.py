@@ -12,7 +12,7 @@ class ReviewView(View):
     def reviewlist(self, request, pk):
         obj = Cust.objects.all()
         robjs = Review.objects.all()
-        reply_list = Reply.objects.filter(seochono=pk)
+        reply_list = Review.objects.select_related('seochono').filter(seochono=pk)
         review_list = Review.objects.select_related('seochono').filter(seochono=pk)
         market = Seocho.objects.get(seochono=pk)
         context = {
