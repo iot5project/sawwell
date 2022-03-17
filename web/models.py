@@ -50,7 +50,7 @@ class Market(models.Model):
 
 class Ceo(models.Model):
     ceoid = models.AutoField(primary_key=True)
-    seochono = models.ForeignKey('Seocho', models.DO_NOTHING, db_column='seochono')
+    seochono = models.ForeignKey('Seocho', on_delete=models.CASCADE, db_column='seochono')
     id = models.CharField(max_length=100, blank=True, null=True)
     password = models.CharField(max_length=100, blank=True, null=True)
     name = models.CharField(max_length=100, blank=True, null=True)
@@ -88,7 +88,7 @@ class Reply(models.Model):
     replyid = models.AutoField(primary_key=True)
     reviewno = models.ForeignKey('Review', models.DO_NOTHING, db_column='reviewno')
     seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
-    ceoid = models.ForeignKey(Ceo, models.DO_NOTHING, db_column='ceoid')
+    ceoid = models.ForeignKey(Ceo, on_delete=models.CASCADE, db_column='ceoid')
     pcontent = models.CharField(max_length=100, blank=True, null=True)
     regdate = models.DateField(auto_now=True)
 
