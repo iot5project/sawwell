@@ -1,42 +1,39 @@
 {% load static %}
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-inner-pages">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo"><a href="/">Saw Well</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto " href="/">Home</a></li>
-          <li><a class="active" href="/market/{{name.categoriname}}">{{name.categoriname}}</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-  <head>
-    <title>{{name.categoriname}}</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
-    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+  <div class="container d-flex align-items-center justify-content-between">
+    <h1 class="logo"><a href="/">Saw Well</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link scrollto " href="/">Home</a></li>
+        <li><a class="active">{{name.categoriname}}</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+  </div>
+</header><!-- End Header -->
+<head>
+  <title>{{name.categoriname}}</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-  </head>
+    }
+  </style>
+</head>
 <header>
   <div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
@@ -92,7 +89,7 @@
                   <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/market/menu/{{o.seochono}}">Menu</a></button>
                   <button type="button" class="btn btn-sm btn-outline-secondary" style="algin=center;"><a href="/review/reviewlist/{{o.seochono}}">Review</a></button>
                 </div>
-                <small class="text-muted">평점 : {{o.star}}</small>
+                <small class="text-muted">주요메뉴 : {{o.food}}</small>
               </div>
             </div>
           </div>

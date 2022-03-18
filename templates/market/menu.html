@@ -16,10 +16,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="/">Home</a></li>
-          <li><a class="active" href="/market/{{name.categori}}">{{name.categori}}</a></li>
-          <li><a class="nav-link scrollto" href="/review/reviewlist">review</a> </li>
-          <li><a class="active" href="/market/menu">menu</a> </li>
+          <li><a class="nav-link scrollto" href="/">Home</a></li>
+          <li><a class="nav-link scrollto">{{name.categori}}</a></li>
+          <li><a class="nav-link scrollto" href="/review/reviewlist/{{market.seochono}}">review</a> </li>
+          <li><a class="active" href="/market/menu/{{market.seochono}}">menu</a>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -30,7 +30,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">g
+    <section id="breadcrumbs" class="breadcrumbs">
         <div class="container py-5">
                 <div class="row">
                     <div class="col-lg-10 mx-auto col-12 text-center mb-3">

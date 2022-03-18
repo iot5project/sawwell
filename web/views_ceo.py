@@ -66,14 +66,7 @@ class CeoView(View):
         obj = Ceo.objects.get(id=id)
         obj.delete()
         logout(request)
-        rank_list = Review.objects.select_related('seochono').annotate(avg_star=Avg('star')).distinct().filter().order_by('-avg_star')[:9]
-        context = {
-            'popular': 'home/popular.html',
-            'categori': 'home/categori.html',
-            'search': 'home/search.html',
-            'seochono': rank_list
-        }
-        return redirect(request, 'home.hmtl', context)
+        return redirect('/')
 
     @request_mapping("/updateview", method="get")
     def updateview(self, request):
