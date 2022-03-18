@@ -23,7 +23,7 @@
   </header><!-- End Header -->
   <main id="main">
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
+    <section id="breadcrumbs" class="breadcrumbs">g
         <div class="container py-5">
                 <div class="row">
                     <div class="col-lg-10 mx-auto col-12 text-center mb-3">
@@ -44,23 +44,26 @@
                             <div class="title">
                                 <h3>Menu</h3>
                             </div>
+                            <form action="/ceo/update" method="get">
                             <ul>
                                 {% for obj in menu_list %}
                                 <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
                                     <div class="item">
                                         <div class="item-title">
-                                            <h2>{{obj.name}}</h2>
+                                            name<input type="text" name="name" value="{{obj.name}}"><br>
                                             <div class="border-bottom"></div>
-                                            <h4>₩ {{obj.price}}</h4>
+                                            price<input type="text" name="price" value="{{obj.price}}"><br>
                                             <p></p>
                                         </div>
                                     </div>
                                 </li>
                                 {% endfor %}
                             </ul>
+                                <input type="submit" value="UPDATE">
+                            </form>
                         </div>
                     </div>
-                    <button><a href="/ceo/restaurantupdateview/{{market_img.seochono}}">update</a></button>
+                    <button><a href="/ceo/restaurantupdateview">update</a></button>
                 </div><!-- .col-md-12 close -->
             </div><!-- .row close -->
         </div><!-- .containe close -->
