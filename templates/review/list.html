@@ -3,9 +3,10 @@
 {% load static %}
 <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 <script>
-function toggle_div(id) {
-     var e = document.getElementById(id);
-     e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+var error = ['{{error}}']
+
+if(error[0] == {{error}}){
+  alert('아이디 또는 비밀번호가 잘못되었습니다.');
 }
 </script>
 <style>
@@ -35,8 +36,7 @@ a{
 
 }
 </style>
-<body>
-  <main id="main">
+<main id="main">
     <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
@@ -53,26 +53,47 @@ a{
       </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
-      <script>
-          var error = ['{{error}}']
+<script>
+var error = ['{{error}}']
 
 if(error[0] == {{error}}){
-  alert('아이디 또는 비밀번호가 잘못되었습니다.');
+  alert('리뷰를 할려면 로그인을 해야합니다. 로그인을 해주세요.');
 }
-      </script>
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li>market_name</li>
-          <li>review</li>
-        </ol>
-        <h2>Review</h2>
+</script>
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li>market_name</li>
+      <li>review</li>
+    </ol>
+    <h2>Review</h2>
+  </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= Blog Section ======= -->
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-8 entries">
+        <article class="entry">
+          <h2 class="entry-title">
+            <span>{{market.marketname}} 리뷰</span>
+          </h2>
+          <form action="/review/reviewimpl/{{market.seochono}}/" method="post">
+              {% csrf_token %}
+              별점<input type="number" name="star" min="1" max="5"><br>
+              <br>
+              평가<input type="text" name="content" style="width:400px;height:100px;font-size:10px;"><br>
+              <br>
+            <input type="submit" value="submit">
+          </form>
+        </article>
       </div>
-    </section><!-- End Breadcrumbs -->
-    <!-- ======= Blog Section ======= -->
-  <section id="blog" class="blog">
+    </div>
+  </div>
+</section>
+  <section class="blog">
     <div class="container">
       <div class="review-list">
         <ul>
@@ -95,48 +116,18 @@ if(error[0] == {{error}}){
                         <br>
                         <div class="review-description">
                             <p>
-                               {{r.reviewno}} : {{r.content}}
+                                {{r.content}}
                             </p>
                           <br>
                         </div>
                         <div>
                         </div>
                         {% endfor %}
-                        <div class="helpful-thumbs">
-                            <div class="helpful-thumb text-body-2">
-
-                            </div>
-                        </div>
-                        <div class="response-item mt-4 d-flex">
-                            <div class="left">
-                                <span>
-                                </span>
-                            </div>
-                            {% for rp in rpobjs  %}
-                            <div class="right">
-                                <h4>
-                                    {{rp.ceoid.name}}
-                                </h4>
-                                <div class="country d-flex align-items-center">
-                                    <span>
-                                    </span>
-                                </div>
-                                <div class="review-description">
-                                    <p>
-                                      {{rp.pcontent}}
-                                    </p>
-                                <br>
-                            </div>
-                            <div>
-                            {% endfor %}
-                              </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </li>
         </ul>
-        </div>
+      </div>
     </div>
   </section>
-  </main><!-- End #main -->
+</main><!-- End #main -->

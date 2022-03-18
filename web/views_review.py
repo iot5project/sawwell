@@ -1,8 +1,9 @@
+from django.db.models import Avg
 from django.shortcuts import render, redirect
 from django.views import View
 from django_request_mapping import request_mapping
 
-from web.models import Cust, Review, Reply, Ceo, Seocho
+from web.models import Cust, Review, Reply, Seocho
 
 
 @request_mapping('/review')
@@ -40,30 +41,5 @@ class ReviewView(View):
             redirect_action = '/review/reviewlist/' + str(pk) + '/'
             return redirect(redirect_action, context)
         except:
-            context['error'] = 'error'
-            redirect_action = '/review/reviewlist/' + str(pk) + '/'
-            print(context['error'])
-            return redirect(redirect_action, context)
-
-    @request_mapping("/replyimpl/<int:pk>/", method="post")
-    def replyimpl(self, request, pk):
-        pcontent = request.POST['reply']
-        reviewno = request.POST['reviewno']
-        context = dict()
-        print(pcontent)
-        print(reviewno)
-        try:
-            id = request.session['sessionid']
-            ceoid = Ceo.objects.get(id=id)
-            seochono = Seocho.objects.get(seochono=pk)
-            print(ceoid, seochono)
-            Reply(pcontent=pcontent, reivewno=reviewno, ceoid=ceoid, seochono=seochono).save()
-            redirect_action = '/review/reviewlist/' + str(pk) + '/'
-            return redirect(redirect_action, context)
-        except:
-            context['error'] = 'error'
-            redirect_action = '/review/reviewlist/' + str(pk) + '/'
-            print(context['error'])
-            return redirect(redirect_action, context)
-
+            return redirect('/identify/login')
 

@@ -30,7 +30,6 @@ class MyView(View):
         market_list = Seocho.objects.order_by('marketno')
         paginator = Paginator(market_list, 9)
         page_obj = paginator.get_page(page)
-        print(page_obj.query)
         context = {
             'center': 'seocho.html',
             'objs': page_obj
