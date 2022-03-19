@@ -1,4 +1,4 @@
-        'NAME': 'sawwell$sawwell',
+        'NAME': 'sawwell$default',
         'USER': 'sawwell',
         'PASSWORD': 'pass1004',
         'HOST': 'sawwell.mysql.pythonanywhere-services.com',

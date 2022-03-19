@@ -15,7 +15,7 @@ def cust():
             print("('" + ids + split + password + split + name + split + address + split + email + "');")
 
 
-cust()
+# cust()
 
 
 def food():
@@ -55,7 +55,7 @@ def review():
             print("('" + content + split + str(star) + split + str(custno) + split + str(seochono) + "');")
 
 
-# review()
+review()
 
 
 def ceo():
@@ -74,17 +74,17 @@ def ceo():
 # ceo()
 
 
-def reply():
-    print('INSERT INTO `reply` ( `content`, `ceoid`, `reviewno`, `seochono`) VALUES')
-    for i in range(1, 316):
-        content = 'market' + str(i) + 'ceo' + str(i) + 'id' + str(i)
-        ceoid = i
-        reviewno = i
-        seochono = i
-        split = "'" + ',' + "'"
-        print("('" + content + split + str(ceoid) + split + str(seochono) + split + str(seochono) + "'),")
-        if i == 315:
-            print("('" + content + split + str(ceoid) + split + str(seochono) + split + str(seochono) + "');")
-
-
-#reply()
+# def reply():
+#     print('INSERT INTO `reply` ( `content`, `ceoid`, `reviewno`, `seochono`) VALUES')
+#     for i in range(1, 316):
+#         content = 'market' + str(i) + 'ceo' + str(i) + 'id' + str(i)
+#         ceoid = i
+#         reviewno = i
+#         seochono = i
+#         split = "'" + ',' + "'"
+#         print("('" + content + split + str(ceoid) + split + str(seochono) + split + str(seochono) + "'),")
+#         if i == 315:
+#             print("('" + content + split + str(ceoid) + split + str(seochono) + split + str(seochono) + "');")
+#
+#
+# #reply()

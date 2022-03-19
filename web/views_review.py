@@ -1,4 +1,3 @@
-from django.db.models import Avg
 from django.shortcuts import render, redirect
 from django.views import View
 from django_request_mapping import request_mapping
