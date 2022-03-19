@@ -76,7 +76,7 @@ class Seocho(models.Model):
 
 class Seochofood(models.Model):
     foodid = models.AutoField(primary_key=True)
-    seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
+    seochono = models.ForeignKey(Seocho, on_delete=models.CASCADE, db_column='seochono')
     name = models.CharField(max_length=30, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
 
@@ -86,7 +86,7 @@ class Seochofood(models.Model):
 
 class Review(models.Model):
     reviewno = models.AutoField(primary_key=True)
-    seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
+    seochono = models.ForeignKey(Seocho, on_delete=models.CASCADE, db_column='seochono')
     custno = models.ForeignKey(Cust, on_delete=models.CASCADE, db_column='custno')
     content = models.CharField(max_length=100, blank=True, null=True)
     star = models.FloatField(blank=True, null=True)
@@ -98,7 +98,7 @@ class Review(models.Model):
 
 class Reply(models.Model):
     replyid = models.AutoField(primary_key=True)
-    reviewno = models.ForeignKey(Review, models.DO_NOTHING, db_column='reviewno')
+    reviewno = models.ForeignKey(Review, models.CASCADE, db_column='reviewno')
     seochono = models.ForeignKey(Seocho, models.DO_NOTHING, db_column='seochono')
     ceoid = models.ForeignKey(Ceo, on_delete=models.CASCADE, db_column='ceoid')
     pcontent = models.CharField(max_length=100, blank=True, null=True)
