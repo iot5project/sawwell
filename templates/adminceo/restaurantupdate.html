@@ -44,15 +44,15 @@
                             <div class="title">
                                 <h3>Menu</h3>
                             </div>
-                            <form action="/ceo/update" method="get">
+                            <form action="/ceo/restaurantupdate" method="get">
                             <ul>
                                 {% for obj in menu_list %}
                                 <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
                                     <div class="item">
                                         <div class="item-title">
-                                            name<input type="text" name="name" value="{{obj.name}}"><br>
+                                            <input type="text" name="name" value="{{obj.name}}"><br>
                                             <div class="border-bottom"></div>
-                                            price<input type="text" name="price" value="{{obj.price}}"><br>
+                                            <input type="text" name="price" value="{{obj.price}}"><br>
                                             <p></p>
                                         </div>
                                     </div>

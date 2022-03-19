@@ -1,5 +1,4 @@
 from django.contrib.auth import logout
-from django.db.models import Avg
 from django.shortcuts import render, redirect
 from django.views import View
 from django_request_mapping import request_mapping
@@ -68,6 +67,14 @@ class CeoView(View):
         logout(request)
         return redirect('/')
 
+    @request_mapping("/restaurantdelete/<int:pk>/", method="get")
+    def rastaurnatDelete(self, request):
+        id = request.session['sessionid']
+        obj = Seocho.objects.get(id=id)
+        obj.delete()
+        logout(request)
+        return redirect('/')
+
     @request_mapping("/updateview", method="get")
     def updateview(self, request):
         id = request.session['sessionid']
@@ -123,7 +130,7 @@ class CeoView(View):
     def ceopwdfindimpl(self, request):
         id = request.POST.get('id', False)
         name = request.POST.get('name', False)
-        context = {}
+        context = dict()
         try:
             ceo = Ceo.objects.get(id=id)
             if ceo.name == name:
@@ -165,10 +172,6 @@ class CeoView(View):
         menu_list = Seochofood.objects.filter(seochono=pk)
         market_img = Seocho.objects.get(seochono=pk)
         market_name = Seocho.objects.get(seochono=pk)
-        obj = Ceo.objects.get(id=id)
-        robjs = Review.objects.get(id=id)
-        review_list = Review.objects.select_related('seochono').filter(seochono=pk)
-        reply_list = Reply.objects.select_related('ceoid').filter(seochono=pk)
         market = Seocho.objects.get(seochono=pk)
         context = {
             'center': 'adminceo/restaurantupdate.html',
@@ -176,26 +179,20 @@ class CeoView(View):
             'menu_list': menu_list,
             'market_img': market_img,
             'market': market,
-            'robjs': robjs,
-            'rpobjs': reply_list,
-            'real_obj': review_list,
-            'objs': obj
         }
         return render(request, 'common/main.html', context)
 
     @request_mapping("/restaurantupdate", method="get")
     def restaurantupdate(self, request):
-        password = request.GET['password']
-        id = request.GET['id']
         name = request.GET['name']
         menu_list = request.GET['menu_list']
         market_img = request.GET['market_img']
-        obj = Ceo.objects.get(id=id)
-        obj.password = password
-        obj.name = name
-        obj.menu_list = menu_list
+        obj = Seocho.objects.get(id=id)
+        obj.marketname = name
+        obj.save()
+        objs = Seochofood.objects.get(foodid=id)
+        objs.menu = menu_list
         obj.market_img = market_img
-        obj.name = name
         obj.save()
         return redirect('/ceo/mypage')
 
@@ -204,8 +201,6 @@ class CeoView(View):
         pcontent = request.POST['reply']
         reviewno = request.POST['reviewno']
         context = dict()
-        print(pcontent)
-        print(reviewno)
         try:
             id = request.session['sessionid']
             ceoid = Ceo.objects.get(id=id)

@@ -15,7 +15,8 @@ class MyView(View):
 
     @request_mapping('/')
     def home(self, request):
-        rank_list = Review.objects.select_related('seochono').annotate(avg_star=Avg('star')).distinct().filter().order_by('-avg_star')[:9]
+        # rank_list = Review.objects.select_related('seochono').annotate(avg_star=Avg('star')).filter().order_by('-avg_star')[:9]
+        rank_list = Seocho.objects.order_by('-seochono')[:9]
         context = {
             'popular': 'home/popular.html',
             'categori': 'home/categori.html',
