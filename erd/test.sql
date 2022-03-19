@@ -1,3 +1,4 @@
+alter table cust modify regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
 
 INSERT INTO `cust` (`id`, `password`, `name`, `address`, `email`) VALUES
 ('id1','id1','name1','addres1','email1'),

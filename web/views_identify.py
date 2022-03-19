@@ -127,7 +127,7 @@ class IdentifyView(View):
         obj = Cust.objects.get(id=id)
         obj.delete()
         logout(request)
-        return render(request, 'common/home.html')
+        return redirect('/')
 
     @request_mapping("/updateview", method="get")
     def updateview(self, request):
