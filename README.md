@@ -142,7 +142,7 @@ PEP8에서는 공백 4칸으로 들여쓰기 하는 것을 원칙으로 하고 �
 
 4. Sub Page (markets, menu, review & reply)
 
-## 1.  Database 구조
+## 1-1.  Database 구조
 
 Register를 통해 회원 등록시 회원 레코드 생성
 
@@ -150,23 +150,80 @@ Register를 통해 회원 등록시 회원 레코드 생성
 
 <img width="%100" alt='erd' src='https://user-images.githubusercontent.com/73889507/159175770-fd478540-0dea-4e16-8a6d-0ab1318ee529.png'>
 
-## 2. Data 크롤링
+## 1-2. Data 크롤링
 
 가계 대표 이미지를 크롤링(가게 이미지라 맞지 않은것은 직접 수정)
 
 <img width="%100" alt='crawing2' src='https://user-images.githubusercontent.com/73889507/159176383-6fd1ba9d-0e15-42aa-8884-0f1417ff8216.gif'>
 
-## 3. 데이터 등록 마켓 갯수와 동일한 test 쿼리 만들기
+## 1-3. test 데이터
 
 데이터 등록 마켓 갯수와 동일한 test 쿼리 만들기
 
 <img width="%100" alt='test' src='https://user-images.githubusercontent.com/73889507/159176490-c18cb5ae-fb2f-484a-9f6c-8bb46bd0a86a.png'>
 
-## 4. csv 데이터
+## 1-4. csv 데이터
 
 csv 데이터 Hide sql에서 데이터 저장
 
-<img width="%100" alt='crawing2' src='https://user-images.githubusercontent.com/73889507/159176551-82333ea0-71d4-480f-95c4-661c4ba99ac2.png'>
+<img width="%100" alt='csv' src='https://user-images.githubusercontent.com/73889507/159176551-82333ea0-71d4-480f-95c4-661c4ba99ac2.png'>
+
+## 1-5. 템플릿 분할
+
+<img width="%100" alt='templete' src='https://user-images.githubusercontent.com/73889507/159191288-be74a0fa-a6c1-4299-b729-eba6c826a0ec.png'>
+
+## 2-1. Login page
+
+<img width="%100" alt='Login' src='https://user-images.githubusercontent.com/73889507/159191360-1422c7cf-9f5e-426b-801a-f8e3500ec1f2.png'>
+
+## 2-2. Register
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191404-f50ad5a5-88ca-4cf9-a1e2-7e1f542d1517.png'>
+
+## 2-3. Update/DELETE
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191435-eada9d0f-3116-4dda-9cd4-81b744f13163.png'>
+
+## 3. Main Page
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191467-9ba28a12-f4ef-4f2e-9609-da518117f4ff.png'>
+
+## 3-1. Category
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191484-3301a368-a9f3-4242-85ca-ddccfc81b878.png'>
+
+## 3-2. Pouplar 
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191516-a282c0df-afb3-4b1f-b800-25bcabc6addd.png'>
+
+## 3-3. Search
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191545-b0178828-8b80-4dc2-b0b4-6fb9da03548a.png'>
+
+## 3-5. Chart
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191605-11ad5319-81d9-496c-839e-416ee4f0f961.png'>
+
+## 3-6. Market
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191647-2e064a8c-25be-4d1a-94cd-2a8acb9459bd.png'>
+
+## 3-7. Menu
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191686-73100bfa-1daf-492e-90f3-e45ec1ca888e.png'>
+
+## 3-8 Review
+
+<img width="%100" alt='register' src='https://user-images.githubusercontent.com/73889507/159191722-305351b8-0799-4019-bf0d-1265f59ee2bf.png'>
+
+
+
+
+
+
+
+
+
 
 
 
