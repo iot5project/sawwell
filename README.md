@@ -22,7 +22,7 @@
 
 구축된 DB와 함께 연결하여 파이썬 애니웨어를 통하여 웹상에 배포됩니다.
 
-배포 주소 : https://sawwell.pythonanywhere.com/
+배포 주소 : https://sawwelladmil1541.pythonanywhere.com
 
 구조 
 
